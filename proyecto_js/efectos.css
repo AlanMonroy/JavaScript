@@ -1,0 +1,29 @@
+#div_centrar{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(43, 41, 41, 0.733);
+}
+
+#seccion_imagenes{
+    display: flex;
+    width: 1000px;
+    height: 430px;
+    margin: 10px;
+}
+
+#seccion_imagenes img{
+    width:0px;
+    flex-grow: 1;
+    object-fit: cover;
+    opacity: .8;
+    transition: 3s ease;
+}
+
+#seccion_imagenes img:hover{
+    cursor:crosshair;
+    width: 300px;
+    opacity: 1;
+    filter: contrast(120%);
+}
