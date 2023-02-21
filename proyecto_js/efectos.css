@@ -1,10 +1,9 @@
 /* ----- LOADER ----*/
-
 #caja_loader{
+    /*Cree esta caja para centar el loader*/
     width: 100%;
     display: grid;
     place-content: center;
-
     padding: 15px;
 }
 
@@ -77,4 +76,31 @@
     width: 300px;
     opacity: 1;
     filter: contrast(120%);
+}
+/* Estilo super botón*/
+#estilo_button{
+    border: 0;
+    background-image: linear-gradient(150deg,#9500ff,#09f,#00DDFF);
+    border-radius: 8px;
+    color: #fff;
+    display: flex;
+    font-size: 18px;
+    padding: 4px;
+    cursor: pointer;
+    transition: .3s;
+}
+
+#estilo_button span{
+    background-color: #111;
+    padding: 16px 24px;
+    border-radius: 6px;
+    transition: .3s;
+}
+
+#estilo_button:hover span{
+    background: none;
+}
+
+#estilo_button:active{
+    transform: scale(0.9);
 }
