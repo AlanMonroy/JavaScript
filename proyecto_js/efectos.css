@@ -5,7 +5,7 @@
     place-content: center;
     padding: 15px;
 }
-/* ----- LOADER ----*/
+/* -------------------------- LOADER ------------------------*/
 .loader{
     width: 60px;
     height: 60px;
@@ -43,7 +43,7 @@
     }
  }
 
-/*----------------GALERIA DE IMAGENES------------------*/
+/*------------------------------GALERIA DE IMAGENES---------------------------------*/
 #caja_galeria{
     /* CAJA DE LA GALERIA */
     width: 100%;
@@ -75,7 +75,7 @@
     opacity: 1;
     filter: contrast(120%);
 }
-/* --------------- Estilo super botón ---------------------*/
+/* ------------------------------ Estilo super botón -----------------------------*/
 #estilo_button{
     border: 0;
     background-image: linear-gradient(150deg,#9500ff,#09f,#00DDFF);
@@ -101,4 +101,37 @@
 
 #estilo_button:active{
     transform: scale(0.9);
+}
+/*-----------------------------------SUPER BOTÓN 2------------------------------------*/
+#button_2{
+    background: black;
+    cursor: pointer;
+    border: none;
+    padding: 16px 32px;
+    color: white;
+    font-size: 24px;
+    position: relative;
+    border-radius: 12px;
+}
+
+#button_2::before{
+    content: "";
+    position: absolute;
+    top:0;
+    left: 0;
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg,red,blue,deeppink,blue,
+    red,blue,deeppink,blue);
+    background-size: 800%;
+    border-radius: 10px;
+    filter:blur(10px);
+    animation: glowing 20s linear;
+}
+
+@keyframes glowing {
+    0%{background-position: 0 0;}
+    50%{background-position: 400% 0;}
+    100%{background-position: 0 0;}
 }
