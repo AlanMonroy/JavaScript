@@ -1,0 +1,71 @@
+<style type="text/css">
+    #div_calendario{
+        text-align: center;
+        width: 500px;
+    }
+    #div_calendario ol{
+        list-style: none;
+        display: grid;
+        grid-template-columns: repeat(7,1fr);
+        padding: 0;
+    }
+    #first_day{
+        grid-column-start: 7;
+    }
+    .dia{
+        background: #eee;
+        font-weight: bold;
+    }
+</style>
+<div id="div_calendario">
+    <h1>Enero 2023</h1>
+    <ol>
+        <li class="dia">Lunes</li>
+        <li class="dia">Martes</li>
+        <li class="dia">Miercoles</li>
+        <li class="dia">Jueves</li>
+        <li class="dia">Viernes</li>
+        <li class="dia">Sabado</li>
+        <li class="dia">Domingo</li>
+
+        <li id="first_day">1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+        <li>6</li>
+        <li>7</li>
+        <li>8</li>
+        <li>9</li>
+        <li>10</li>
+        <li>11</li>
+        <li>12</li>
+        <li>13</li>
+        <li>14</li>
+        <li>15</li>
+        <li>16</li>
+        <li>17</li>
+        <li>18</li>
+        <li>19</li>
+        <li>20</li>
+        <li>21</li>
+        <li>22</li>
+        <li>23</li>
+        <li>24</li>
+        <li>25</li>
+        <li>26</li>
+        <li>27</li>
+        <li>28</li>
+        <li>29</li>
+        <li>30</li>
+        <li>31</li>
+    </ol>
+</div>
+
+<script>
+    const actualYear = 20223;
+    const locale = 'es';
+
+    const months = [...Array(12).keys()];
+    const intl = new Intl.DateTimeFormat(locale,{month:'long'})
+</script>

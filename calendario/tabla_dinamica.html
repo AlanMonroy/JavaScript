@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Tabla Interactiva</title>
+  <style>
+    table, th, td {
+      border: 1px solid black;
+      padding: 10px;
+      resize: none;
+    }
+    table{
+        table-layout: fixed;
+        width: 50%;
+    }
+
+    td {
+        width: 100px; /* Ancho fijo para las celdas */
+        overflow: hidden; /* Ocultar cualquier contenido que sobrepase el ancho fijo */
+        /*text-overflow: ellipsis; /* Agregar puntos suspensivos al final del contenido oculto */
+        white-space: nowrap; /* Evitar que el contenido se divida en varias líneas */
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Tabla Interactiva</h1>
+
+  <table id="mi-tabla">
+    <thead>
+      <tr>
+        <th>Nombre</th>
+        <th>Edad</th>
+        <th>Ciudad</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td contenteditable="true">Lucas</td>
+        <td contenteditable="true">25</td>
+        <td contenteditable="true">Madrid</td>
+      </tr>
+      <tr>
+        <td contenteditable="true">María</td>
+        <td contenteditable="true">30</td>
+        <td contenteditable="true">Barcelona</td>
+      </tr>
+      <tr>
+        <td contenteditable="true">Andrés</td>
+        <td contenteditable="true">20</td>
+        <td contenteditable="true">Sevilla</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <script>
+    // Obtener la tabla por su ID
+    var tabla = document.getElementById("mi-tabla");
+
+    // Añadir evento "click" a la tabla
+    tabla.addEventListener("click", function(event) {
+      // Obtener el elemento TD que fue clickeado
+      var elementoClickeado = event.target;
+      
+      // Si el elemento clickeado es un TD
+      if (elementoClickeado.tagName === "TD") {
+        // Habilitar la edición del contenido de la celda
+        elementoClickeado.contentEditable = "true";
+        
+        // Enfocar la celda para que el usuario pueda empezar a editarla
+        elementoClickeado.focus();
+      }
+    });
+
+    tabla.addEventListener('keydown', function(event) {
+    if (event.key === 'Enter') {
+      event.preventDefault();// Detener la acción por defecto de la tecla Enter
+      var elementoClickeado = event.target;
+      elementoClickeado.blur();    
+        }
+    });
+  </script>
+
+</body>
+</html>
