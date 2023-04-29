@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Test de opciones múltiples</title>
+</head>
+<body>
+
+    <h1>Test de opciones múltiples</h1>
+    
+    <div id="preguntas"></div>
+    <button onclick="calificar()">Calificar</button>
+
+    <script>
+        // Preguntas y opciones de respuesta
+        let preguntas = [
+            {
+                pregunta: "¿Cuál es el río más largo del mundo?",
+                opciones: [
+                    "Amazonas",
+                    "Nilo",
+                    "Mississippi",
+                    "Yangtsé"
+                ],
+                respuestaCorrecta: 0
+            },
+            {
+                pregunta: "¿Cuál es el océano más grande del mundo?",
+                opciones: [
+                    "Atlántico",
+                    "Pacífico",
+                    "Índico",
+                    "Antártico"
+                ],
+                respuestaCorrecta: 0
+            }
+        ];
+
+        // Generar las preguntas y opciones de respuesta
+        let preguntasHTML = "";
+        for (let i = 0; i < preguntas.length; i++) {
+            preguntasHTML += "<h3>" + preguntas[i].pregunta + "</h3>";
+            for (let j = 0; j < preguntas[i].opciones.length; j++) {
+                preguntasHTML += "<p><input type='radio' name='pregunta" + i + "' value='" + j + "'> " + preguntas[i].opciones[j] + "</p>";
+            }
+        }
+        document.getElementById("preguntas").innerHTML = preguntasHTML;
+
+        // Calificar el test
+        function calificar() {
+            let aciertos = 0;
+            let respuestas = [];
+            for (let i = 0; i < preguntas.length; i++) {
+                let respuesta = document.querySelector("input[name=pregunta" + i + "]:checked");
+                if (respuesta === null) {
+                    respuestas.push("No respondida");
+                } else {
+                    respuestas.push(preguntas[i].opciones[parseInt(respuesta.value)]);
+                    if (parseInt(respuesta.value) === preguntas[i].respuestaCorrecta) {
+                        aciertos++;
+                    }
+                }
+            }
+            alert("Calificación: " + aciertos + "/" + preguntas.length + "\n\nRespuestas: \n" + respuestas.join("\n"));
+        }
+    </script>
+
+</body>
+</html>
+
