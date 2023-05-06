@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Reproductor de video de YouTube</title>
+	<script src="https://www.youtube.com/iframe_api"></script>
+	<script>
+		// Función que se llama cuando se carga la API de YouTube
+		function onYouTubeIframeAPIReady() {
+			// Crear un nuevo reproductor de video
+			var player = new YT.Player('player', {
+				height: '315',
+				width: '560',
+				videoId: 'dDQe2r51IlE',
+				playerVars: {
+					autoplay: 0,        // No reproduzcas el video automáticamente
+                    controls: 0,        // Mostrar los controles del reproductor
+                    showinfo: 0,        // No mostrar información del video
+                    modestbranding: 0,  // Ocultar el logo de YouTube
+                    rel: 0  
+				}
+			});
+		}
+	</script>
+</head>
+<body>
+	<div id="player"></div>
+</body>
+</html>
