@@ -4,7 +4,6 @@ class metodo_post{
       // Agregar los valores de cada fila y columna dinámicamente
         for (let rowIndex = 0; rowIndex < llamar_excel_2.rows().count(); rowIndex++) {
             const rowValues = llamar_excel_2.rows().get(rowIndex);
-            console.log(rowValues)
 
             const info = {
                 "FILA":rowIndex+1,
@@ -18,7 +17,7 @@ class metodo_post{
                 "CR": llamar_excel_2.rows().get(rowIndex).get_value(7),
                 "SI_LEGACY": llamar_excel_2.rows().get(rowIndex).get_value(8),
                 "SI_ORACLE": llamar_excel_2.rows().get(rowIndex).get_value(9),
-                "NOMBRE_PROY": llamar_excel_2.rows().get(rowIndex).get_value(10),
+                "NOMBRE_PROYECTO": llamar_excel_2.rows().get(rowIndex).get_value(10),
                 "FECHA_INICIO_MES_FACTURAR": llamar_excel_2.rows().get(rowIndex).get_value(11),
                 "FECHA_FIN_MES_FACTURAR": llamar_excel_2.rows().get(rowIndex).get_value(12),
                 "FECHA_INICIO": llamar_excel_2.rows().get(rowIndex).get_value(13),
@@ -29,15 +28,14 @@ class metodo_post{
                 "DIAS_VACACIONES": llamar_excel_2.rows().get(rowIndex).get_value(18),
                 "HORAS_TOTALES_MES": llamar_excel_2.rows().get(rowIndex).get_value(19),
                 "HORAS_DIA": llamar_excel_2.rows().get(rowIndex).get_value(20),
-                "HORAS_LABORALES": llamar_excel_2.rows().get(rowIndex).get_value(21),
+                "HORAS_LABORADAS": llamar_excel_2.rows().get(rowIndex).get_value(21),
                 "PORCENTAJE_ASIGNACION": llamar_excel_2.rows().get(rowIndex).get_value(22),
                 "TIPO_SERVICIO": llamar_excel_2.rows().get(rowIndex).get_value(23),
                 "CONTACTO_VOBO": llamar_excel_2.rows().get(rowIndex).get_value(24),
                 "CORREO_SOLICITUD_VOBO": llamar_excel_2.rows().get(rowIndex).get_value(25),
             };
                 /*colElement.textContent = colValue;*/
-            console.log(`DATA: ${JSON.stringify(info)}`)
-            console.log(info)
+            /*console.log(`DATA: ${JSON.stringify(info)}`)*/
 
             fetch('/ords/alere_qa/rest_ale_facturacion/insert', {
             method: 'POST',
@@ -47,10 +45,11 @@ class metodo_post{
             body: JSON.stringify(info)
             })
             .then(response => {
+            console.log(`DATA: ${JSON.stringify(info)}`)
             if (response.ok) {return response.json();}
             throw new Error('Error al hacer la solicitud POST');})
             .then(data => {console.log(data);})
-            .catch(error => {console.error(error);});
+            .catch(error => {console.error('Error en la linea: ' + rowIndex +' - Descripcion: '+error);});
         }
     }
 }
@@ -113,7 +112,6 @@ class ExcelPrinter{
       // Agregar los valores de cada fila y columna dinámicamente
       for (let rowIndex = 0; rowIndex < llamar_excel_1.rows().count(); rowIndex++) {
         const rowValues = llamar_excel_1.rows().get(rowIndex);
-        console.log(rowValues)
 
         const longitud = llamar_excel_1.rows().get(rowIndex).longitud();
         const rowElement = document.createElement("tr");
