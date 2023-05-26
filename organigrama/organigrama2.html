@@ -13,14 +13,19 @@
   --black: black;
 }
 
-*{
+#contenedor_total {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
 }
 
-ol {
-  list-style: none;
+#contenedor_total h1,
+#contenedor_total h2,
+#contenedor_total h3,
+#contenedor_total h4,
+#contenedor_total ol {
+  margin: 0;
+  padding: 0;
 }
 
 body {
@@ -90,11 +95,11 @@ body {
   background: var(--black);
 }
 
-.level-2-wrapper li {
+#contenedor_total .level-2-wrapper li {
   position: relative;
 }
 
-.level-2-wrapper > li::before {
+#contenedor_total .level-2-wrapper > li::before {
   content: "";
   position: absolute;
   bottom: 100%;
@@ -105,13 +110,13 @@ body {
   background: var(--black);
 }
 
-.level-2 {
+#contenedor_total .level-2 {
   width: 70%;
   margin: 0 auto 40px;
   background: var(--level-2);
 }
 
-.level-2::before {
+#contenedor_total .level-2::before {
   content: "";
   position: absolute;
   top: 100%;
@@ -122,7 +127,7 @@ body {
   background: var(--black);
 }
 
-.level-2::after {
+#contenedor_total .level-2::after {
   display: none;
   content: "";
   position: absolute;
@@ -167,7 +172,7 @@ body {
   background: var(--black);
 }
 
-.level-3 {
+#contenedor_total .level-3 {
   margin-bottom: 20px;
   background: var(--level-3);
 }
@@ -195,12 +200,12 @@ body {
   margin-top: 20px;
 }
 
-.level-4 {
+#contenedor_total .level-4 {
   font-weight: normal;
   background: var(--level-4);
 }
 
-.level-4::before {
+#contenedor_total .level-4::before {
   content: "";
   position: absolute;
   top: 50%;
@@ -220,7 +225,7 @@ body {
   }
 
   #level-1,
-  .level-2 {
+  #contenedor_total .level-2 {
     width: 100%;
   }
 
@@ -229,28 +234,28 @@ body {
   }
 
   #level-1::before,
-  .level-2-wrapper > li::before {
+  #contenedor_total .level-2-wrapper > li::before {
     display: none;
   }
   
-  .level-2-wrapper,
-  .level-2-wrapper::after,
-  .level-2::after {
+  #contenedor_total .level-2-wrapper,
+  #contenedor_total .level-2-wrapper::after,
+  #contenedor_total .level-2::after {
     display: block;
   }
 
-  .level-2-wrapper {
+  #contenedor_total .level-2-wrapper {
     width: 90%;
     margin-left: 10%;
   }
 
-  .level-2-wrapper::before {
+  #contenedor_total .level-2-wrapper::before {
     left: -20px;
     width: 2px;
     height: calc(100% + 40px);
   }
 
-  .level-2-wrapper > li:not(:first-child) {
+  #contenedor_total .level-2-wrapper > li:not(:first-child) {
     margin-top: 50px;
   }
 }
@@ -276,6 +281,17 @@ body {
   <div id="contenedor_total">
 	<div class="container">
 		<h1 id="level-1" class="rectangle">CEO</h1>
+    <ol class="level-2-wrapper">
+		  <li>
+			<h2 class="level-2 rectangle">CEO 2</h2>
+			<ol class="level-3-wrapper">
+        <li>
+          <h3 class="level-3 rectangle">CEO 3</h3>
+        </li>
+      </ol>
+      </li>
+    </ol>
+    
 		<ol class="level-2-wrapper">
 		  <li>
 			<h2 class="level-2 rectangle">Director A</h2>
@@ -320,7 +336,7 @@ body {
 			<h2 class="level-2 rectangle">Director B</h2>
 			<ol class="level-3-wrapper">
 			  <li>
-				<h3 class="level-3 rectangle">Manager C</h3>
+				<h3 class="level-3 rectangle">Manager A</h3>
 				<ol class="level-4-wrapper">
 				  <li>
 					<h4 class="level-4 rectangle">Person A</h4>
@@ -337,7 +353,7 @@ body {
 				</ol>
 			  </li>
 			  <li>
-				<h3 class="level-3 rectangle">Manager D</h3>
+				<h3 class="level-3 rectangle">Manager B</h3>
 				<ol class="level-4-wrapper">
 				  <li>
 					<h4 class="level-4 rectangle">Person A</h4>
@@ -356,18 +372,11 @@ body {
 			</ol>
 		  </li>
 		</ol>
-    <ol class="level-2-wrapper">
-		  <li>
-			<h2 class="level-2 rectangle">CEO 2</h2>
-			<ol class="level-3-wrapper">
-        <li>
-          <h3 class="level-3 rectangle">CEO 3</h3>
-        </li>
-      </ol>
-      </li>
-    </ol>
-	  </div>
+	</div>
+
+	<footer class="page-footer">
+		<p>Made with love by John Doe</p>
+	</footer>
   </div>
-	  
 </body>
 </html>

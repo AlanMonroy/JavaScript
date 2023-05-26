@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Titulo</title>
+    <style type="text/css">
+        .clase2{
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <p>Parrafo 1</p>
+    <p id="mi_id">Parrafo 2</p>
+    <p class="clase2">Parrafo 3</p>
+    <p>Parrafo 4
+        <a href="">Ruta</a>
+    </p>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <script>
+        d3.select("p").style("color","green");
+        d3.select("#mi_id").style("color","blue");
+        d3.select(".clase").style("color","red");
+        d3.selectAll("p").select("a").style("color","#A7361E");
+        d3.select("p").classed("clase2",false); //Habilitar deshabilitar clase
+    </script>
+</body>
+</html>
