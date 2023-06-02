@@ -1,0 +1,46 @@
+body{
+    background-color: blueviolet;
+}
+.wrapper{
+    width: 100%;
+    display: grid;
+    place-content: center;
+    padding: 15px;
+    background-color: aliceblue;
+}
+
+.content{
+    background-color: aqua;
+}
+.content .search{
+    position: relative;
+}
+.search i{
+    position: absolute;
+    padding: 1px 0 0 5px;
+}
+.search input{
+    outline: none;
+    padding: 0 20px 0 25px;
+}
+.content .options{
+    margin-top: 10px;
+}
+
+.options {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+.options li {
+cursor: pointer;
+display: flex;
+align-items: center;
+border-radius: 21px;
+padding: 0 13px;
+}
+
+.options li:hover{
+    background-color: rgb(0, 119, 255);
+}
